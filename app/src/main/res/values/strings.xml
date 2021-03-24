@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">JobsAndTasks</string>\
+
+    <string name="buttonText">This is text from a resource on a button</string>
+    <string name="create_account_buttonText"><u>Create Account</u></string>
+
+</resources>
