@@ -20,6 +20,7 @@
 
         <activity android:name=".signupclass" />
         <activity android:name=".employeeProfile"/>
+        <activity android:name=".employeeEdit"/>
 
     </application>
 

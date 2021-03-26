@@ -41,6 +41,18 @@ public class employee
     public String getSchool(){return school;}
     public String getDegree(){return degree;}
 
+    public void setFName(String change){fName = change;}
+    public void setlName(String change){lName = change;}
+    public void setEmpEmail(String change){empEmail = change;}
+    public void setEmpPhone(String change){empPhone = change;}
+    public void setEmpPassword(String change){empPassword = change;}
+    public void setEmpCountry(String change){empCountry = change;}
+    public void setEmpPostal(String change){empPostal = change;}
+    public void setEmpLocalArea(String change){empArea = change;}
+    public void setemprevJob(String change){empprevJob = change;}
+    public void setSchool(String change){school = change;}
+    public void setDegree(String change){degree = change;}
+
     public @NotNull String toString()
     {
         return  fName+lName+empEmail+empPhone+empPassword+empCountry+empPostal+empArea+school+degree+empprevJob;
