@@ -59,7 +59,6 @@ public class employeeProfile extends AppCompatActivity
         TextView bio = findViewById(R.id.bioView);
         bio.setText(curEmp.getBio());
 
-        //onButtonShowPopupWindowClick(findViewById(R.id.employLayout));
     }
 
     public void editAccount(View view)
@@ -68,8 +67,4 @@ public class employeeProfile extends AppCompatActivity
         intent.putExtra("currentUser", curUser);
         startActivity(intent);
     }
-
-
-
-
 }
