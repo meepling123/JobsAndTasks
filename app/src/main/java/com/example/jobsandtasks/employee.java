@@ -1,12 +1,16 @@
 package com.example.jobsandtasks;
+import android.widget.LinearLayout;
+
 import org.jetbrains.annotations.NotNull;
+import java.util.ArrayList;
 
 import java.util.stream.*;
 public class employee
 {
     String fName, lName, empEmail, empPhone, empPassword, empCountry, empPostal, empArea, empprevJob, school, degree;
 
-
+    String Bio = "No Biography";
+    ArrayList<String> skills = new ArrayList<String>();
     boolean isStudent = false;
 
           
@@ -40,18 +44,23 @@ public class employee
     public String getemprevJob(){return empprevJob;}
     public String getSchool(){return school;}
     public String getDegree(){return degree;}
+    public String getBio(){return Bio;}
+    public boolean isStudent(){return isStudent;}
+    public ArrayList getSkill(){return skills;}
 
-    public void setFName(String change){fName = change;}
-    public void setlName(String change){lName = change;}
-    public void setEmpEmail(String change){empEmail = change;}
-    public void setEmpPhone(String change){empPhone = change;}
-    public void setEmpPassword(String change){empPassword = change;}
-    public void setEmpCountry(String change){empCountry = change;}
-    public void setEmpPostal(String change){empPostal = change;}
-    public void setEmpLocalArea(String change){empArea = change;}
-    public void setemprevJob(String change){empprevJob = change;}
-    public void setSchool(String change){school = change;}
-    public void setDegree(String change){degree = change;}
+    public void setFName(String change){this.fName = change;}
+    public void setlName(String change){this.lName = change;}
+    public void setEmpEmail(String change){this.empEmail = change;}
+    public void setEmpPhone(String change){this.empPhone = change;}
+    public void setEmpPassword(String change){this.empPassword = change;}
+    public void setEmpCountry(String change){this.empCountry = change;}
+    public void setEmpPostal(String change){this.empPostal = change;}
+    public void setEmpLocalArea(String change){this.empArea = change;}
+    public void setemprevJob(String change){this.empprevJob = change;}
+    public void setSchool(String change){this.school = change;}
+    public void setDegree(String change){this.degree = change;}
+    public void setBio(String change){this.Bio = change;}
+    public void addSkill(String skill){this.skills.add(skill);}
 
     public @NotNull String toString()
     {

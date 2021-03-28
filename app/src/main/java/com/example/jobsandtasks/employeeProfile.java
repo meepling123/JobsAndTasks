@@ -1,8 +1,18 @@
 package com.example.jobsandtasks;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +28,7 @@ public class employeeProfile extends AppCompatActivity
      *      THIS WILL ADD THE EMPLOYEES INFO ONTO THERE PROFILE
      *      IMPLEMENT THIS ON MONDAY OR I WILL HANG YOU
      */
+    int curUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +38,8 @@ public class employeeProfile extends AppCompatActivity
         int curUserPosition = intent.getIntExtra("currentUser",0);
         employeeDataBase dataBase = new employeeDataBase();
         curEmp = dataBase.getEmployeeBylogin(curUserPosition);
+
+        curUser = curUserPosition;
 
         TextView empName = findViewById(R.id.employeeNameLabel);
         empName.setText(curEmp.getFName() + " " + curEmp.getlName());
@@ -43,8 +56,20 @@ public class employeeProfile extends AppCompatActivity
         TextView Contact = findViewById(R.id.contactLabel);
         Contact.setText("Email: " + curEmp.getEmpEmail() + "\n" + "Phone: " + curEmp.getEmpPhone());
 
-        System.out.println("DOES THIS WORK");
-        System.out.println(curEmp);
+        TextView bio = findViewById(R.id.bioView);
+        bio.setText(curEmp.getBio());
 
+        //onButtonShowPopupWindowClick(findViewById(R.id.employLayout));
     }
+
+    public void editAccount(View view)
+    {
+        Intent intent= new Intent(this ,employeeEdit.class);
+        intent.putExtra("currentUser", curUser);
+        startActivity(intent);
+    }
+
+
+
+
 }
