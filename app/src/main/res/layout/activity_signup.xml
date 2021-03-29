@@ -7,6 +7,8 @@
     tools:context=".signupclass">
 
 
+
+
     <ScrollView
         android:layout_width="385dp"
         android:layout_height="wrap_content"
@@ -290,7 +292,4 @@
     </ScrollView>
 
 
-
-
-<!--    </ScrollView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

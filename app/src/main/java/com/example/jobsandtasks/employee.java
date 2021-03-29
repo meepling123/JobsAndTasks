@@ -1,4 +1,5 @@
 package com.example.jobsandtasks;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import org.jetbrains.annotations.NotNull;
@@ -17,8 +18,8 @@ public class employee
     public employee(String firstName, String lastName, String Email, String phone, String password
             , String Country, String PostalCode, String locArea, String preJob,String School, String Degree, boolean student)
     {
-        if (preJob == null) {preJob = "No previous work experience";}
-        if (Degree == null) {Degree = "Not yet graduated";}
+        if (preJob.equals("")) {preJob = "No previous work experience";}
+        if (Degree.equals("")) {Degree = "Not yet graduated";}
            fName = firstName;
            lName = lastName;
         empEmail = Email;
