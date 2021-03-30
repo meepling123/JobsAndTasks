@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     employee emp1 = new employee("Daniel", "Austin", "djaus564@gmail.com", "555-141-4141", "meepling10"
             ,"AMERICA", "85086", "Anthem", "Hitman", "Boulder Creek", "none", true);
     employee emp2 = new employee("Emerson", "Love", "superStraight@straight.com", "555-141-4141", "meepling101"
-            ,"Syria", "85086", "Anthem", "Hitman", "Boulder Creek", "none", true);
+            ,"AMERICA", "85086", "Anthem", "Hitman", "Boulder Creek", "none", true);
     employee emp3 = new employee("Gay", "Bowser", "gay@gmail.com", "555-141-4141", "meepling123"
             ,"Brazil", "85086", "Anthem", "Hitman", "Boulder Creek", "none", true);
 

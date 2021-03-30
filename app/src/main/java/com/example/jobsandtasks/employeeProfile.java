@@ -67,4 +67,11 @@ public class employeeProfile extends AppCompatActivity
         intent.putExtra("currentUser", curUser);
         startActivity(intent);
     }
+
+    public void goHome(View view)
+    {
+        Intent intent= new Intent(this ,employeeHomeMaker.class);
+        intent.putExtra("currentUser", curUser);
+        startActivity(intent);
+    }
 }
