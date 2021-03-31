@@ -26,8 +26,7 @@ import org.w3c.dom.Text;
 
 
 
-public class employeeHomeMaker extends AppCompatActivity
-{
+public class employeeHomeMaker extends AppCompatActivity {
     private int home_prof_view;
 
 
@@ -39,20 +38,20 @@ public class employeeHomeMaker extends AppCompatActivity
 
         LinearLayout ll = new LinearLayout(this);
         ll.setOrientation(LinearLayout.HORIZONTAL);
-        LinearLayout.LayoutParams  llParams = new LinearLayout.LayoutParams(220,140);
+        LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(220, 140);
         ll.setLayoutParams(llParams);
 
         ImageView img = new ImageView(this);
         img.setImageResource(R.drawable.ic_place_holder);
         LinearLayout.LayoutParams imgParams = new LinearLayout.LayoutParams(76, 80);
-        imgParams.setMargins(8, 8, 0 ,0);
+        imgParams.setMargins(8, 8, 0, 0);
         img.setLayoutParams(imgParams);
 
         ll.addView(img);
 
         LinearLayout nameLocLL = new LinearLayout(this);
         nameLocLL.setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams  llParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams llParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         nameLocLL.setLayoutParams(llParams2);
 
         TextView name = new TextView(this);
@@ -78,4 +77,4 @@ public class employeeHomeMaker extends AppCompatActivity
 
     }
 
- 
+}
