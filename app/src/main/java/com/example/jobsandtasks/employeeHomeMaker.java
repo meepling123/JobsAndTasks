@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
+
 import android.widget.*;
 
 public class employeeHomeMaker extends AppCompatActivity
@@ -21,6 +24,12 @@ public class employeeHomeMaker extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.employee_home_layout);
+
+        TextView textView = new TextView(this);
+        textView.setId(Integer.parseInt("@+id/KillMe"));
+
+        TextView textView2 = new TextView(this);
+
 
         employeeDataBase dataBase = new employeeDataBase();
         homeEmployeeShowClass person = new homeEmployeeShowClass(dataBase.getEmployeeBylogin(2));
@@ -40,5 +49,39 @@ public class employeeHomeMaker extends AppCompatActivity
 //        textView1.setBackgroundColor(0xff66ff66); // hex color 0xAARRGGBB
 //        textView1.setPadding(20, 20, 20, 20);// in pixels (left, top, right, bottom)
 
+    }
+
+    public void createHome(LinearLayout ll)
+    {
+
+        ConstraintLayout.LayoutParams mainLayout = new ConstraintLayout.LayoutParams(180, 160);
+        ConstraintSet set = new ConstraintSet();
+
+        set.clone((ConstraintLayout) findViewById(R.id.employLayout));
+
+        set.applyTo(findViewById(R.id.employLayout));
+
+        TextView textView = new TextView(this);
+        int textViewId = 100;
+        textView.setId(textViewId);
+
+        ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(80, 76);
+
+        ImageView img = new ImageView(this);
+        img.setImageResource(R.drawable.ic_place_holder);
+
+        layoutParams.topToTop = 8;
+        layoutParams.leftToLeft = 8;
+        layoutParams.rightMargin = 8;
+        img.setLayoutParams(layoutParams);
+
+        ConstraintLayout.LayoutParams nameParams =
+                new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        nameParams.topToTop= 22;
+        nameParams.leftToLeft = 98;
+        textView.setLayoutParams(nameParams);
+        //98
+        TextView nameLabelView = new TextView(this);
     }
 }
