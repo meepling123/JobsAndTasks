@@ -2,9 +2,11 @@ package com.example.jobsandtasks;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+
 import android.graphics.Color;
 import android.graphics.ImageFormat;
 import android.media.Image;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +24,12 @@ import android.widget.*;
 
 import org.w3c.dom.Text;
 
+
+
 public class employeeHomeMaker extends AppCompatActivity
 {
+    private int home_prof_view;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,3 +77,5 @@ public class employeeHomeMaker extends AppCompatActivity
         mainLl.addView(ll);
 
     }
+
+ 
