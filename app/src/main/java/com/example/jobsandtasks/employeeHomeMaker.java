@@ -3,6 +3,7 @@ package com.example.jobsandtasks;
 import android.annotation.SuppressLint;
 import android.content.Context;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.ImageFormat;
 import android.media.Image;
@@ -10,6 +11,8 @@ import android.media.Image;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -30,6 +33,8 @@ import org.w3c.dom.Text;
 public class employeeHomeMaker extends AppCompatActivity {
     private int home_prof_view;
 
+    employee curUser;
+    int userPosition;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,13 +42,28 @@ public class employeeHomeMaker extends AppCompatActivity {
 
         LinearLayout mainLl = findViewById(R.id.homeLinearLayout);
 
+        Intent intent = getIntent();
+        int curUserPosition = intent.getIntExtra("currentUser",0);
+        userPosition = curUserPosition;
+        employeeDataBase dataBase = new employeeDataBase();
+        curUser = dataBase.getEmployeeBylogin(curUserPosition);
 
+        // DOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 
-        mainLl.addView(makeEmploy());
+        for (int i = 0; i < dataBase.userBaseSize(); i++)
+        {
+            if (curUser.getEmpCountry() == dataBase.getEmployeeBylogin(i).getEmpCountry() &&
+                    curUser.getEmpCountry() == dataBase.getEmployeeBylogin(i).getEmpCountry())
+            {
+
+            }
+        }
+
+        //mainLl.addView(makeEmploy());
 
     }
 
-    public View makeEmploy()
+    public View makeEmploy(employee e)
     {
         LinearLayout ll = new LinearLayout(this);
         ll.setOrientation(LinearLayout.HORIZONTAL);
@@ -66,11 +86,11 @@ public class employeeHomeMaker extends AppCompatActivity {
 
         TextView name = new TextView(this);
         name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        name.setText("Epic");
+        name.setText(e.getFName() + " " + e.getlName());
 
         TextView loc = new TextView(this);
         loc.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        loc.setText("Somalia");
+        loc.setText(e.getEmpCountry() + ", " + e.getEmpLocalArea());
 
         nameLocLL.addView(name);
         nameLocLL.addView(loc);
@@ -87,6 +107,32 @@ public class employeeHomeMaker extends AppCompatActivity {
         ll.addView(button);
 
         return ll;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_profile) {
+            Intent intent= new Intent(this ,employeeProfile.class);
+            intent.putExtra("currentUser", userPosition);
+            startActivity(intent);
+            return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }
