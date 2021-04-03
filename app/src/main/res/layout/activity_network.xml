@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context=".employeeHomeMaker">
+    tools:context=".employeeMakeNetwork">
 
     <TextView
         android:id="@+id/homeViewText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
-        android:text="Home"
+        android:text="Your network"
         android:textSize="36dp"
         />
 

@@ -29,6 +29,7 @@ public class companyJob {
     public String getRegion() {return  locArea;}
     public String getDescription() {return description;}
     public ArrayList<String> getSkills() {return skills;}
+    public String getSpecSkills(int i) {return skills.get(i);}
     public boolean isOnline() {return isOnline;}
     public int getAge() {return age;}
 }

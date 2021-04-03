@@ -2,6 +2,7 @@ package com.example.jobsandtasks;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import java.util.Random;
 
 import androidx.annotation.Nullable;
 
@@ -36,6 +37,8 @@ public class employeeDataBase
         {
                 return employees.size();
         }
+
+        public ArrayList<employee> getList() {return employees;}
 
         public void addEmployee(employee emp) { employees.add(emp); }
         public void removeEmployee(employee emp) {employees.remove(emp);}

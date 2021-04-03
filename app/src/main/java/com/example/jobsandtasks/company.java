@@ -55,6 +55,46 @@ public class company {
         return jobs.get(i);
     }
 
+    public int getNumJobs() {return jobs.size();}
+
+    public companyJob getSpecificJob(employee e, int start)
+    {
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        boolean matchSkills = false;
+        boolean oldEnough = false;
+        boolean canAccessJob = false;
+
+        for (i = start; i < jobs.size(); i++)
+        {
+            for (j = 0; j < e.getSkillSize(); j++)
+            {
+                for (k = 0; k < jobs.get(i).getSkills().size(); k++)
+                {
+                    if (e.getSpecSkill(j).equals(jobs.get(i).getSpecSkills(k)))
+                    {
+                        matchSkills = true;
+                    }
+                    if (e.getAge() >= jobs.get(i).getAge())
+                    {
+                        oldEnough = true;
+                    }
+                    if (jobs.get(i).isOnline() == true || jobs.get(i).postalCode.equals(e.getEmpPostal()) || jobs.get(i).locArea.equals(e.getEmpLocalArea()))
+                    {
+                        canAccessJob = true;
+                    }
+                    if (matchSkills == true && oldEnough == true && canAccessJob == true)
+                    {
+                        return jobs.get(i);
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
     public @NotNull String toString()
     {
         return Name+Country+postalCode+Region+description;

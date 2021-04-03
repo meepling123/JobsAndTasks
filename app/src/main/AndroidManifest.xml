@@ -22,6 +22,8 @@
         <activity android:name=".employeeProfile"/>
         <activity android:name=".employeeEdit"/>
         <activity android:name=".employeeHomeMaker"/>
+        <activity android:name=".employeeOutsideView"/>
+        <activity android:name=".employeeMakeNetwork"/>
 
     </application>
 

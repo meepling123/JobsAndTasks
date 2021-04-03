@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             ,"AMERICA", "85086", "Anthem", "Priest", "Anthem Prep", "Participation Trophy", false, 20);
     employee emp5 = new employee("Joe", "Sherk", "jda2012@gmail.com", "654-232-7777", "meepling10"
             ,"AMERICA", "83786", "Anthem", "Travel Agent", "Harvard University", "none", false, 20);
-    employee emp6 = new employee("Gordan", "Neeas", "djaus564@gmail.com", "555-141-4141", "meepling10"
+    employee emp6 = new employee("Gordan", "Neeas", "dj4us164@gmail.com", "555-141-4141", "meepling10"
             ,"Brazil", "85086", "Anthem", "Fire Fighter", "Boulder Creek", "none", true, 20);
     employee emp7 = new employee("Keith", "Nora", "ktnor564@gmail.com", "555-141-4141", "meepling10"
             ,"AMERICA", "85062", "Tuscan", "Fire Fighter", "Boulder Creek", "none", true, 20);
@@ -45,15 +45,15 @@ public class MainActivity extends AppCompatActivity {
             ,"AMERICA", "85086", "Anthem", "Fire Fighter", "Boulder Creek", "High School diploma", true, 20);
     employee emp10 = new employee("Derek", "Austin", "dtAus564@gmail.com", "555-141-4141", "meepling10"
             ,"AMERICA", "85085", "Anthem", "Police officer", "Boulder Creek", "High School diploma", false, 20);
-    employee emp11 = new employee("Amasi", "Reyesh", "djaus564@gmail.com", "555-141-4141", "meepling10"
+    employee emp11 = new employee("Amasi", "Reyesh", "djaus909@gmail.com", "555-141-4141", "meepling10"
             ,"AMERICA", "85085", "Tuscan", "Hitman", "Boulder Creek", "High School diploma", true, 20);
-    employee emp12 = new employee("Derek", "Austin", "djaus564@gmail.com", "555-141-4141", "meepling10"
+    employee emp12 = new employee("Derek", "Austin", "djfic322@gmail.com", "555-141-4141", "meepling10"
             ,"Brazil", "85085", "Flagstaff", "Waiter", "Boulder Creek", "High School diploma", false, 20);
     employee emp13 = new employee("Selec", "teeqn", "sbtee930@gmail.com", "555-141-4141", "meepling10"
             ,"AMERICA", "85085", "Anthem", "Fire Fighter", "Boulder Creek", "High School diploma", false, 20);
     employee emp14 = new employee("Perkic", "yeas", "pbeas921@gmail.com", "555-141-4141", "meepling10"
             ,"AMERICA", "85085", "Anthem", "Funeral Director", "Boulder Creek", "High School diploma", true, 20);
-    employee emp15 = new employee("Derek", "Austin", "djaus564@gmail.com", "555-141-4141", "meepling10"
+    employee emp15 = new employee("Derek", "Austin", "djuus413@gmail.com", "555-141-4141", "meepling10"
             ,"AMERICA", "85085", "Phoenix", "Hitman", "Boulder Creek", "High School diploma", true, 20);
 
     company com1 = new company("MicroSoft","America","85086","Anthem","Tech Company");
@@ -69,9 +69,21 @@ public class MainActivity extends AppCompatActivity {
         emp1.addSkill("Math");
         emp1.addSkill("Comprehension");
 
-        int b = (int)(Math.random()*(3-1+1)+1);
-
-       makeUsers(b);
+        dataBase.addEmployee(emp1);
+        dataBase.addEmployee(emp2);
+        dataBase.addEmployee(emp3);
+        dataBase.addEmployee(emp4);
+        dataBase.addEmployee(emp5);
+        dataBase.addEmployee(emp6);
+        dataBase.addEmployee(emp7);
+        dataBase.addEmployee(emp8);
+        dataBase.addEmployee(emp9);
+        dataBase.addEmployee(emp10);
+        dataBase.addEmployee(emp11);
+        dataBase.addEmployee(emp12);
+        dataBase.addEmployee(emp13);
+        dataBase.addEmployee(emp14);
+        dataBase.addEmployee(emp15);
 
         comDataBase.addCompany(com1);
         comDataBase.addCompany(com2);

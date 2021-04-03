@@ -11,6 +11,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.media.Image;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -30,6 +31,9 @@ import android.widget.*;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 public class employeeHomeMaker extends AppCompatActivity {
@@ -50,13 +54,12 @@ public class employeeHomeMaker extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.employee_home_layout);
 
-        LinearLayout mainLl = findViewById(R.id.homeLinearLayout);
-
         Intent intent = getIntent();
         int curUserPosition = intent.getIntExtra("currentUser",0);
         userPosition = curUserPosition;
         curUser = dataBase.getEmployeeBylogin(curUserPosition);
 
+        LinearLayout mainLl = findViewById(R.id.homeLinearLayout);
         //Determine Priority of which employees is viewed
         for (int i = 0; i < dataBase.userBaseSize(); i++)
         {
@@ -134,30 +137,9 @@ public class employeeHomeMaker extends AppCompatActivity {
             {
                 cRating[i] = 4;
             }
-
-
-
-
-        }
-
-        for (int j = 5; j > 0; j--)
-        {
-            for (int k = 0; k < dataBase.userBaseSize(); k++)
+            if (curUser.getEmpCountry().equals(companyDataBase.getCompany(i).getCountry()) == false)
             {
-                if (rating[k] == j)
-                {
-                    mainLl.addView(makeEmploy(dataBase.getEmployeeBylogin(k)));
-
-                    //This is just a divider
-                    LinearLayout ll = new LinearLayout(this);
-                    ll.setOrientation(LinearLayout.HORIZONTAL);
-                    LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(8, 8);
-                    ll.setLayoutParams(llParams);
-                    mainLl.addView(ll);
-                    if (k % 4 == 0) {
-                        mainLl.addView(makeCompany(companyDataBase.getCompany(0), companyDataBase.getCompany(0).getJob(0)));
-                    }
-                }
+                cRating[i] = 0;
             }
 
 
@@ -165,17 +147,76 @@ public class employeeHomeMaker extends AppCompatActivity {
 
         }
 
+        int total = 0;
+        ArrayList<companyJob> usedJobs = new ArrayList<companyJob>();
+        ArrayList<Integer> positions = new ArrayList<Integer>();
+        for (int j = 5; j > 0; j--)
+        {
+            for (int k = 0; k < dataBase.userBaseSize(); k++)
+            {
+
+                if (rating[k] == j)
+                {
+                    total++;
+                    mainLl.addView(makeEmploy(dataBase.getEmployeeBylogin(k), k));
+
+                    //This is just a divider
+                    LinearLayout ll = new LinearLayout(this);
+                    ll.setOrientation(LinearLayout.HORIZONTAL);
+                    LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 24);
+                    ll.setLayoutParams(llParams);
+                    mainLl.addView(ll);
+
+
+                }
+                if (total % 5 == 0 && positions.contains(total) == false && total != 0)
+                {
+                    positions.add(total);
+                    boolean didAdd = false;
+                    for (int i = 0; i < companyDataBase.userBaseSize(); i++)
+                    {
+                        for (int q = 0; q < companyDataBase.getCompany(i).getNumJobs(); q++)
+                        {
+                            if (usedJobs.contains(companyDataBase.getCompany(i).getSpecificJob(curUser,q)))
+                            {
+
+                            }
+                            else {
+                                mainLl.addView(makeCompany(companyDataBase.getCompany(i), companyDataBase.getCompany(i).getSpecificJob(curUser, q)));
+                                usedJobs.add(companyDataBase.getCompany(i).getSpecificJob(curUser, q));
+                                didAdd = true;
+                                break;
+                            }
+
+                        }
+                        if (didAdd == true){break;}
+                    }
+                }
+            }
+        }
 
     }
 
-    public View makeEmploy(employee e)
+    public View makeEmploy(employee e, int position)
     {
+        //int[] sentInfo = {position, curUser};
+        int pos = position;
+        if (e == null)
+        {
+            LinearLayout ll = new LinearLayout(this);
+            ll.setOrientation(LinearLayout.HORIZONTAL);
+            LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 24);
+            ll.setLayoutParams(llParams);
+            return ll;
+        }
+
         LinearLayout ll = new LinearLayout(this);
         ll.setOrientation(LinearLayout.HORIZONTAL);
 
         ll.setBackgroundColor(Color.LTGRAY);
         LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         ll.setLayoutParams(llParams);
+
 
         ImageView img = new ImageView(this);
         img.setImageResource(R.drawable.ic_person_place_holder);
@@ -211,6 +252,12 @@ public class employeeHomeMaker extends AppCompatActivity {
         button.setTextColor(Color.WHITE);
         button.setText("View Profile");
         button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                goToProf(pos);
+
+            }
+        });
 
         ll.addView(button);
 
@@ -218,13 +265,27 @@ public class employeeHomeMaker extends AppCompatActivity {
 
         return ll;
     }
+    public void goToProf(int pos)
+    {
+        Intent intent = new Intent(this, employeeOutsideView.class);
+        intent.putExtra("viewedUser", pos);
+        intent.putExtra("curUser", userPosition);
+        startActivity(intent);
+    }
 
     public View makeCompany(company c, companyJob job)
     {
-
+        if (c == null || job == null)
+        {
+            LinearLayout ll = new LinearLayout(this);
+            ll.setOrientation(LinearLayout.HORIZONTAL);
+            LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 24);
+            ll.setLayoutParams(llParams);
+            return ll;
+        }
         LinearLayout ll = new LinearLayout(this);
         ll.setOrientation(LinearLayout.VERTICAL);
-        ll.setBackgroundColor(Color.rgb(63,81,181));
+        ll.setBackgroundColor(Color.rgb(124,140,227));
 
 
         LinearLayout nameLocLL = new LinearLayout(this);
@@ -310,4 +371,30 @@ public class employeeHomeMaker extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void viewHome(View view)
+    {
+
+    }
+
+    public void viewNetwork(View view)
+    {
+        Intent intent= new Intent(this ,employeeMakeNetwork.class);
+        intent.putExtra("currentUser", userPosition);
+        startActivity(intent);
+    }
+
+    public void viewPost(View view)
+    {
+
+    }
+
+    public void viewNotifications(View view)
+    {
+
+    }
+
+    public void viewJobs(View view)
+    {
+
+    }
 }

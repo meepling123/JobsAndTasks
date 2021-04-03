@@ -33,6 +33,7 @@ public class companyDataBase
             return companies.get(i);
         }
 
+
         public int userBaseSize()
         {
             return companies.size();
