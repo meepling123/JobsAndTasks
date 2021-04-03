@@ -87,6 +87,7 @@
         android:layout_marginTop="16dp"
         android:onClick="loginToAccount"
         android:text="Sign In"
+        app:backgroundTint="#3F51B5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />

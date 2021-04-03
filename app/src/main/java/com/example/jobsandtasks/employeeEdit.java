@@ -19,7 +19,7 @@ import org.w3c.dom.Text;
 public class employeeEdit extends AppCompatActivity
 {
     employee curEmp = new employee("Emerson", "Love", "superStraight@straight.com", "555-141-4141", "meepling10"
-            ,"Syria", "85086", "Anthem", "Hitman", "Boulder Creek", "none", true);
+            ,"Syria", "85086", "Anthem", "Hitman", "Boulder Creek", "none", true, 20);
 
     int user = 0;
 

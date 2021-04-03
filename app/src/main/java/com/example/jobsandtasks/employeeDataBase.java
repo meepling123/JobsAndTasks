@@ -11,18 +11,12 @@ public class employeeDataBase
 {
         public static ArrayList<employee> employees = new ArrayList<employee>();
 
-        //String fName, lName, empEmail, empPhone, empPassword, empCountry, empPostal, empArea, empprevJob, school, degree;
-
-        static employee emp3 = new employee("Gay", "Bowser", "epic@gmail.com", "555-141-4141", "meepling"
-                ,"Brazil", "85086", "Anthem", "Hitman", "Boulder Creek", "none", true);
-
 
         SQLiteDatabase db;
 
         @Nullable
         public static employee getEmployeeByEmail(String email)
         {
-                employees.add(emp3);
                 for(int i = 0; i < employees.size(); i++)
                 {
                         if (employees.get(i).getEmpEmail().equals(email))

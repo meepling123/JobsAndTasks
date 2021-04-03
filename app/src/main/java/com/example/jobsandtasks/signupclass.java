@@ -51,6 +51,7 @@ public class signupclass extends AppCompatActivity
     public void createAccount(View view)
     {
         String fName, lName, empEmail, empPhone, empPassword, empCountry, empPostal, empArea, empprevJob, school, degree;
+        int age;
 
         EditText editText=findViewById(R.id.firstNameEnt);
         fName=editText.getText().toString().replaceAll(" ", "");
@@ -85,23 +86,28 @@ public class signupclass extends AppCompatActivity
         EditText editText11=findViewById(R.id.degreeEnt);
         degree=editText11.getText().toString().replaceAll(" ", "");
 
+        EditText editAge=findViewById(R.id.ageEnt);
+        String inAge = editAge.getText().toString().replaceAll(" ", "");;
+        age = Integer.parseInt(inAge);
+
         CheckBox StudentCheck = findViewById(R.id.stuCheckBox);
         boolean isStudent = StudentCheck.isChecked();
+
 
         //recent job is not required if they are a student
         //String fName, lName, empEmail, empPhone, empPassword, empCountry, empPostal, empArea, empprevJob, school, degree;
         if (fName != "" && lName != "" && empEmail != "" && empPhone != "" && empPassword != "" && empCountry != "" && empPostal != "" &&
-                                    empArea != "" && empprevJob != "" && school != "" && degree != "")
+                                    empArea != "" && empprevJob != "" && school != "" && degree != "" && age != 0)
         {
-            employee newEmp = new employee(fName, lName, empEmail, empPhone, empPassword, empCountry, empPostal, empArea, empprevJob, school, degree, isStudent);
+            employee newEmp = new employee(fName, lName, empEmail, empPhone, empPassword, empCountry, empPostal, empArea, empprevJob, school, degree, isStudent,age);
             dataBase.addEmployee(newEmp);
             startActivity(new Intent(this, MainActivity.class));
 
         }
         else if (fName != "" && lName != "" && empEmail != "" && empPhone != "" && empPassword != "" && empCountry != "" && empPostal != "" &&
-                empArea != "" && isStudent == true && school != "" && degree != "")
+                empArea != "" && isStudent == true && school != "" && degree != "" && age != 0)
         {
-            employee newEmp = new employee(fName, lName, empEmail, empPhone, empPassword, empCountry, empPostal, empArea, "No previous work experience", school, degree, isStudent);
+            employee newEmp = new employee(fName, lName, empEmail, empPhone, empPassword, empCountry, empPostal, empArea, "No previous work experience", school, degree, isStudent,age);
             dataBase.addEmployee(newEmp);
             startActivity(new Intent(this, MainActivity.class));
         }

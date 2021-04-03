@@ -9,6 +9,7 @@ import java.util.stream.*;
 public class employee
 {
     String fName, lName, empEmail, empPhone, empPassword, empCountry, empPostal, empArea, empprevJob, school, degree;
+    int age;
 
     String Bio = "No Biography";
     ArrayList<String> skills = new ArrayList<String>();
@@ -16,7 +17,7 @@ public class employee
 
           
     public employee(String firstName, String lastName, String Email, String phone, String password
-            , String Country, String PostalCode, String locArea, String preJob,String School, String Degree, boolean student)
+            , String Country, String PostalCode, String locArea, String preJob,String School, String Degree, boolean student, int age)
     {
         if (preJob.equals("")) {preJob = "No previous work experience";}
         if (Degree.equals("")) {Degree = "Not yet graduated";}
@@ -32,6 +33,7 @@ public class employee
           degree = Degree;
       empprevJob = preJob;
        isStudent = student;
+       this.age = age;
     }
 
     public String getFName(){return fName;}
@@ -47,6 +49,7 @@ public class employee
     public String getDegree(){return degree;}
     public String getBio(){return Bio;}
     public boolean isStudent(){return isStudent;}
+    public int getAge(){return age;}
     public ArrayList getSkill(){return skills;}
 
     public void setFName(String change){this.fName = change;}
@@ -62,10 +65,11 @@ public class employee
     public void setDegree(String change){this.degree = change;}
     public void setBio(String change){this.Bio = change;}
     public void addSkill(String skill){this.skills.add(skill);}
+    public void setAge(int change) {this.age = change;}
 
     public @NotNull String toString()
     {
-        return  fName+lName+empEmail+empPhone+empPassword+empCountry+empPostal+empArea+school+degree+empprevJob;
+        return  fName+lName+empEmail+empPhone+empPassword+empCountry+empPostal+empArea+school+degree+empprevJob+age;
     }
 
 }

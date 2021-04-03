@@ -22,7 +22,7 @@ import org.w3c.dom.Text;
 public class employeeProfile extends AppCompatActivity
 {
     employee curEmp = new employee("Emerson", "Love", "superStraight@straight.com", "555-141-4141", "meepling10"
-            ,"Syria", "85086", "Anthem", "Hitman", "Boulder Creek", "none", true);
+            ,"Syria", "85086", "Anthem", "Hitman", "Boulder Creek", "none", true, 20);
 
     /*
      *      THIS WILL ADD THE EMPLOYEES INFO ONTO THERE PROFILE

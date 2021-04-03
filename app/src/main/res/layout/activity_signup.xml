@@ -180,7 +180,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="Most recent Job Title * "
+                android:text="Most recent/current Job Title and age * "
 
                 />
 
@@ -207,6 +207,17 @@
                     android:checked="false"
                     android:onClick="onCheckboxClicked"
                     android:text="Student?" />
+
+                <EditText
+                    android:id="@+id/ageEnt"
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="age *"
+                    android:inputType="number"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="8dp"
+                    android:visibility="visible" />
             </LinearLayout>
 
             <LinearLayout
