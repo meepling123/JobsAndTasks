@@ -34,13 +34,7 @@
             android:layout_margin="12dp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:text="No Jobs"
-                android:textSize="36dp"
-                />
+
 
 
         </LinearLayout>

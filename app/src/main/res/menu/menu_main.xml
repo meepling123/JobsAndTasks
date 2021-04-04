@@ -10,7 +10,14 @@
 
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="99"
+        android:orderInCategory="95"
         android:title="Settings"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_signout"
+        android:orderInCategory="97"
+        android:title="Sign Out"
+        app:showAsAction="never" />
+
 </menu>

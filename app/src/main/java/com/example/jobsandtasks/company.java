@@ -32,8 +32,8 @@ public class company {
 
     public String makeEmail()
     {
-
-        return null;
+        email = "" + Name.substring(0,2) + Country.substring(0,1) + postalCode.substring(0,2) + "@gmail.com";
+        return email;
     }
 
     public String getName(){return Name;}
@@ -41,6 +41,7 @@ public class company {
     public String getPostalCode(){return postalCode;}
     public String getRegion(){return Region;}
     public String getDescription(){return description;}
+    public String getEmail() {return email;}
 
     public void setName(String change){Name = change;}
     public void setCountry(String change){Country = change;}
