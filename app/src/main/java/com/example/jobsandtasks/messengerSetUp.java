@@ -128,75 +128,77 @@ public class messengerSetUp extends AppCompatActivity
     public void reply(String message)
     {
         message = message.trim().toLowerCase();
-        if (message.contains("hello"))
-        {
-            LinearLayout mainLl = findViewById(R.id.homeLinearLayout);
 
-            EditText edit = findViewById(R.id.messageBox);
-            LinearLayout.LayoutParams llParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+     if (message.contains("how"))
+    {
+        LinearLayout mainLl = findViewById(R.id.homeLinearLayout);
 
-            TextView message1 = new TextView(this);
-            message1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
-            message1.setText("  Hello! How are you?");
-            message1.setLayoutParams(llParams2);
-            message1.setBackgroundColor(Color.rgb(113,166, 175));
-            message1.setBackgroundResource(R.drawable.rounded_other_message);
-            mainLl.addView(message1);
+        EditText edit = findViewById(R.id.messageBox);
+        LinearLayout.LayoutParams llParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-            orgEmp.addMessage("  " + edit.getText(), j, false);
+        TextView message1 = new TextView(this);
+        message1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
+        message1.setText("  I'm doing well, how about you");
+        message1.setLayoutParams(llParams2);
+        message1.setBackgroundColor(Color.rgb(113,166, 175));
+        message1.setBackgroundResource(R.drawable.rounded_other_message);
+        mainLl.addView(message1);
 
-            LinearLayout ll = new LinearLayout(this);
-            ll.setOrientation(LinearLayout.HORIZONTAL);
-            LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 16);
-            ll.setLayoutParams(llParams);
-            mainLl.addView(ll);
-        }
-        else if (message.contains("how"))
-        {
-            LinearLayout mainLl = findViewById(R.id.homeLinearLayout);
+        orgEmp.addMessage("  " + edit.getText(), j, false);
 
-            EditText edit = findViewById(R.id.messageBox);
-            LinearLayout.LayoutParams llParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout ll = new LinearLayout(this);
+        ll.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 16);
+        ll.setLayoutParams(llParams);
+        mainLl.addView(ll);
+    }
+    else if (message.contains("hello"))
+    {
+        LinearLayout mainLl = findViewById(R.id.homeLinearLayout);
 
-            TextView message1 = new TextView(this);
-            message1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
-            message1.setText("  I'm doing well, how about you");
-            message1.setLayoutParams(llParams2);
-            message1.setBackgroundColor(Color.rgb(113,166, 175));
-            message1.setBackgroundResource(R.drawable.rounded_other_message);
-            mainLl.addView(message1);
+        EditText edit = findViewById(R.id.messageBox);
+        LinearLayout.LayoutParams llParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-            orgEmp.addMessage("  " + edit.getText(), j, false);
+        TextView message1 = new TextView(this);
+        message1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
+        message1.setText("  Hello! How are you?");
+        message1.setLayoutParams(llParams2);
+        message1.setBackgroundColor(Color.rgb(113,166, 175));
+        message1.setBackgroundResource(R.drawable.rounded_other_message);
+        mainLl.addView(message1);
 
-            LinearLayout ll = new LinearLayout(this);
-            ll.setOrientation(LinearLayout.HORIZONTAL);
-            LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 16);
-            ll.setLayoutParams(llParams);
-            mainLl.addView(ll);
-        }
-        else if (message.contains("job"))
-        {
-            LinearLayout mainLl = findViewById(R.id.homeLinearLayout);
+        orgEmp.addMessage("  " + edit.getText(), j, false);
 
-            EditText edit = findViewById(R.id.messageBox);
-            LinearLayout.LayoutParams llParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout ll = new LinearLayout(this);
+        ll.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 16);
+        ll.setLayoutParams(llParams);
+        mainLl.addView(ll);
+    }
 
-            TextView message1 = new TextView(this);
-            message1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
-            message1.setText(" My job is working as a " + viewed.getemprevJob());
-            message1.setLayoutParams(llParams2);
-            message1.setBackgroundColor(Color.rgb(113,166, 175));
-            message1.setBackgroundResource(R.drawable.rounded_other_message);
-            mainLl.addView(message1);
+    else if (message.contains("job"))
+    {
+        LinearLayout mainLl = findViewById(R.id.homeLinearLayout);
 
-            orgEmp.addMessage("  " + edit.getText(), j, false);
+        EditText edit = findViewById(R.id.messageBox);
+        LinearLayout.LayoutParams llParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-            LinearLayout ll = new LinearLayout(this);
-            ll.setOrientation(LinearLayout.HORIZONTAL);
-            LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 16);
-            ll.setLayoutParams(llParams);
-            mainLl.addView(ll);
-        }
+        TextView message1 = new TextView(this);
+        message1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
+        message1.setText(" My job is working as a " + viewed.getemprevJob());
+        message1.setLayoutParams(llParams2);
+        message1.setBackgroundColor(Color.rgb(113,166, 175));
+        message1.setBackgroundResource(R.drawable.rounded_other_message);
+        mainLl.addView(message1);
+
+        orgEmp.addMessage("  " + edit.getText(), j, false);
+
+        LinearLayout ll = new LinearLayout(this);
+        ll.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 16);
+        ll.setLayoutParams(llParams);
+        mainLl.addView(ll);
+    }
 
     }
 

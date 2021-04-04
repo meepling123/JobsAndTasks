@@ -28,8 +28,8 @@
 
         <LinearLayout
             android:id="@+id/homeLinearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="12dp"
             android:orientation="vertical">

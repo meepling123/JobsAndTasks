@@ -12,8 +12,9 @@ public class companyJob {
     ArrayList<String> skills;
     boolean isOnline;
     int age;
+    company c;
 
-    public companyJob(String jobTitle, String country,String postalCode, String locArea, ArrayList<String> skills, boolean isOnline, int age, String desc) {
+    public companyJob(String jobTitle, String country,String postalCode, String locArea, ArrayList<String> skills, boolean isOnline, int age, String desc, company c) {
         this.jobTitle = jobTitle;
         this.postalCode = postalCode;
         this.locArea = locArea;
@@ -21,7 +22,8 @@ public class companyJob {
         this.isOnline = isOnline;
         this.age = age;
         this.country = country;
-        description = desc;
+        this.description = desc;
+        this.c = c;
     }
 
     public String getJobTitle() {return jobTitle;}
@@ -32,4 +34,5 @@ public class companyJob {
     public String getSpecSkills(int i) {return skills.get(i);}
     public boolean isOnline() {return isOnline;}
     public int getAge() {return age;}
+    public company getCompany() {return c;}
 }

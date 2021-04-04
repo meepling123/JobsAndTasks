@@ -24,7 +24,8 @@ public class employee
     ArrayList<ArrayList<String>> messageLogs = new ArrayList<ArrayList<String>>();
     ArrayList<ArrayList<Boolean>> messageOrderlogs = new ArrayList<ArrayList<Boolean>>();
 
-          
+    ArrayList<companyJob> jobs = new ArrayList<companyJob>();
+
     public employee(String firstName, String lastName, String Email, String phone, String password
             , String Country, String PostalCode, String locArea, String preJob,String School, String Degree, boolean student, int age)
     {
@@ -78,6 +79,10 @@ public class employee
     public void setBio(String change){this.Bio = change;}
     public void addSkill(String skill){this.skills.add(skill);}
     public void setAge(int change) {this.age = change;}
+
+    public void addJob(companyJob j) {jobs.add(j);}
+    public int getNumJobs() {return jobs.size();}
+    public companyJob getJob(int i) {return jobs.get(i);}
 
     public void addContact(employee contact) {contacts.add(contact); addLog();}
     public int getContactByPos(employee e) {int i = contacts.indexOf(e); return i;}

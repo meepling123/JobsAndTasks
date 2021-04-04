@@ -107,16 +107,16 @@ public class MainActivity extends AppCompatActivity {
         job1Skills.add("Math");
 
         companyJob microJob1 = new companyJob("Software Developer", "AMERICA","85086", "Anthem", job1Skills,
-                false, 18, "Look for developers to make apps");
+                false, 18, "Look for developers to make apps", com1);
         companyJob microJob2 = new companyJob("Software Tester", "AMERICA","93844", "Tuscan", job1Skills,
-                true, 18, "Look for developers to test apps made by developers");
+                true, 18, "Look for developers to test apps made by developers",com1);
         com1.addJob(microJob1);
         com1.addJob(microJob2);
 
         companyJob appleJob1 = new companyJob("Apple Eater", "AMERICA","85086", "Anthem", job1Skills,
-                false, 18, "Look for developers to make apps");
+                false, 18, "Look for developers to make apps",com2);
         companyJob appleJob2 = new companyJob("Apple developer", "AMERICA","93844", "Tuscan", job1Skills,
-                true, 18, "Look for developers to test apps made by developers");
+                true, 18, "Look for developers to test apps made by developers",com2);
         com2.addJob(appleJob1);
         com2.addJob(appleJob2);
 

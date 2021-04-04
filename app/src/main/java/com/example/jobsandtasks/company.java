@@ -19,7 +19,7 @@ public class company {
     String Region;
     String description;
     ArrayList<companyJob> jobs = new ArrayList<companyJob>();
-
+    String email = "company@gmail.com";
 
     public company(String name, String Country, String postalCode, String region, String description)
     {
@@ -28,6 +28,12 @@ public class company {
         this.postalCode = postalCode;
         this.Region = region;
         this.description = description;
+    }
+
+    public String makeEmail()
+    {
+
+        return null;
     }
 
     public String getName(){return Name;}

@@ -187,6 +187,13 @@ public class employeeHomeMaker extends AppCompatActivity {
                                 mainLl.addView(makeCompany(companyDataBase.getCompany(i), companyDataBase.getCompany(i).getSpecificJob(curUser, q)));
                                 usedJobs.add(companyDataBase.getCompany(i).getSpecificJob(curUser, q));
                                 didAdd = true;
+
+                                LinearLayout ll = new LinearLayout(this);
+                                ll.setOrientation(LinearLayout.HORIZONTAL);
+                                LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 24);
+                                ll.setLayoutParams(llParams);
+                                mainLl.addView(ll);
+
                                 break;
                             }
 
@@ -339,12 +346,24 @@ public class employeeHomeMaker extends AppCompatActivity {
 
         button.setBackgroundColor(Color.DKGRAY);
         button.setTextColor(Color.WHITE);
-        button.setText("View Company/Jobs");
+        button.setText("Add job to list");
         button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                addJob(c, job);
+                button.setText("Job added");
+            }
+        });
 
         ll.addView(button);
 
         return ll;
+    }
+
+    public void addJob(company c, companyJob job)
+    {
+        curUser.addJob(job);
     }
 
     @Override
