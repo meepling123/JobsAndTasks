@@ -3,6 +3,7 @@ package com.example.jobsandtasks;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +22,7 @@ public class employeeOutsideView extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_employee_prof);
+        setContentView(R.layout.activity_outside_employee_view);
 
 
         Intent intent = getIntent();
@@ -64,6 +65,10 @@ public class employeeOutsideView extends AppCompatActivity
 
     public void addContact(View view)
     {
-        dataBase.getEmployeeBylogin(orgUser).addContact(dataBase.getEmployeeBylogin(curUser).getEmpEmail());
+        Button b = findViewById(R.id.contactButton);
+        b.setText("Added!");
+        if (dataBase.getEmployeeBylogin(orgUser).contacts.contains(dataBase.getEmployeeBylogin(curUser)) == false) {
+            dataBase.getEmployeeBylogin(orgUser).addContact(dataBase.getEmployeeBylogin(curUser));
+        }
     }
 }

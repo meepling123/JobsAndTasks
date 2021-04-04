@@ -15,17 +15,17 @@ public class employeeDataBase
 
         SQLiteDatabase db;
 
-        @Nullable
-        public static employee getEmployeeByEmail(String email)
+
+        public int getEmployeePosByEmail(String email)
         {
                 for(int i = 0; i < employees.size(); i++)
                 {
                         if (employees.get(i).getEmpEmail().equals(email))
                         {
-                                return employees.get(i);
+                                return i;
                         }
                 }
-                return null;
+                return -1;
         }
 
         public employee getEmployeeBylogin(int i)

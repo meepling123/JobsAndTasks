@@ -23,53 +23,80 @@ public class employeeMakeNetwork extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_network);
 
+        LinearLayout mainLl = findViewById(R.id.homeLinearLayout);
+
         Intent intent = getIntent();
         int curUserPosition = intent.getIntExtra("currentUser", 0);
         userPosition = curUserPosition;
         curUser = dataBase.getEmployeeBylogin(curUserPosition);
 
+        for (int i = 0; i < curUser.contacts.size(); i++)
+        {
 
+            mainLl.addView(makeContact(curUser.getContactByLoop(i),dataBase.getEmployeePosByEmail(curUser.getContactByLoop(i).empEmail)));
+
+            LinearLayout ll = new LinearLayout(this);
+            ll.setOrientation(LinearLayout.HORIZONTAL);
+            LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 16);
+            ll.setLayoutParams(llParams);
+            mainLl.addView(ll);
+        }
 
     }
 
-    public View makeContact(employee e)
+    public View makeContact(employee e, int i)
     {
+        int id = i;
         LinearLayout ll = new LinearLayout(this);
 
         ll.setOrientation(LinearLayout.HORIZONTAL);
 
         ll.setBackgroundColor(Color.LTGRAY);
-        LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 24);
+        LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT , ViewGroup.LayoutParams.WRAP_CONTENT );
         ll.setLayoutParams(llParams);
 
         ImageView img = new ImageView(this);
         img.setImageResource(R.drawable.ic_person_place_holder);
-        LinearLayout.LayoutParams imgParams = new LinearLayout.LayoutParams(24, 24);
+        LinearLayout.LayoutParams imgParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         img.setLayoutParams(imgParams);
 
         ll.addView(img);
 
         TextView name = new TextView(this);
-        name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
         name.setText(e.getFName() + " " + e.getlName());
 
-        LinearLayout.LayoutParams llParams2 = new LinearLayout.LayoutParams(36, 24);
+        LinearLayout.LayoutParams llParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        llParams2.setMargins(8,12,8,8);
         Button button = new Button(this);
         button.setLayoutParams(llParams2);
 
+        ll.addView(name);
+
         button.setBackgroundColor(Color.DKGRAY);
         button.setTextColor(Color.WHITE);
-
         button.setText("Message");
-        button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                viewMessages(id);
             }
         });
+        ll.addView(button);
+        ll.setPadding(16,8,8,8);
 
         return ll;
+    }
+
+    public void viewMessages(int pos)
+    {
+
+            Intent intent = new Intent(this, messengerSetUp.class);
+            intent.putExtra("viewedUser", pos);
+            intent.putExtra("curUser", userPosition);
+            startActivity(intent);
+
     }
 
     public void viewHome(View view)

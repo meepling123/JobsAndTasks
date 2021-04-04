@@ -24,6 +24,7 @@
         <activity android:name=".employeeHomeMaker"/>
         <activity android:name=".employeeOutsideView"/>
         <activity android:name=".employeeMakeNetwork"/>
+        <activity android:name=".messengerSetUp"/>
 
     </application>
 

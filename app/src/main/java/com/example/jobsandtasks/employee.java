@@ -13,7 +13,8 @@ public class employee
 
     String Bio = "No Biography";
     ArrayList<String> skills = new ArrayList<String>();
-    ArrayList<String> contacts = new ArrayList<String>();
+    ArrayList<employee> contacts = new ArrayList<employee>();
+
     boolean isStudent = false;
 
           
@@ -53,8 +54,8 @@ public class employee
     public int getAge(){return age;}
     public ArrayList getSkill(){return skills;}
     public String getSpecSkill(int i){return skills.get(i);}
-    public ArrayList<String> getContacts() {return contacts;}
-    public String getContactByLoop(int i) {return contacts.get(i);}
+    public ArrayList<employee> getContacts() {return contacts;}
+    public employee getContactByLoop(int i) {return contacts.get(i);}
 
     public void setFName(String change){this.fName = change;}
     public void setlName(String change){this.lName = change;}
@@ -70,7 +71,7 @@ public class employee
     public void setBio(String change){this.Bio = change;}
     public void addSkill(String skill){this.skills.add(skill);}
     public void setAge(int change) {this.age = change;}
-    public void addContact(String contact) {contacts.add(contact);}
+    public void addContact(employee contact) {contacts.add(contact);}
 
     public int getSkillSize() {return skills.size();}
 

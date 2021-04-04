@@ -69,6 +69,9 @@ public class MainActivity extends AppCompatActivity {
         emp1.addSkill("Math");
         emp1.addSkill("Comprehension");
 
+        emp1.addContact(emp2);
+        emp1.addContact(emp15);
+
         dataBase.addEmployee(emp1);
         dataBase.addEmployee(emp2);
         dataBase.addEmployee(emp3);

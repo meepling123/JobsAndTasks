@@ -1,6 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    tools:context=".messengerSetUp">
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/homeViewText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Reciever"
+        android:textSize="36dp"
+        />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/homeViewText">
+
+        <LinearLayout
+            android:id="@+id/homeLinearLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="12dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="@id/homeViewText"
+            >
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/messageBoxLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/action_bar_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/messageBox"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Message"
+            />
+
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:onClick="sendMessage"
+            android:text="Send"
+            app:backgroundTint="#3F51B5" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/action_bar_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:layout_margin="0dp"
+            android:src="@drawable/ic_home_image"
+            android:onClick="viewHome"
+            app:layout_constraintRight_toLeftOf="@id/imageView2" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:layout_margin="0dp"
+            android:src="@drawable/ic_network_image"
+            android:onClick="viewNetwork"
+            app:layout_constraintRight_toLeftOf="@id/imageView3" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:layout_margin="0dp"
+            android:src="@drawable/ic_post_image"
+            android:onClick="viewPost"
+            app:layout_constraintRight_toLeftOf="@id/imageView4" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:layout_margin="0dp"
+            android:src="@drawable/ic_notify_image"
+            android:onClick="viewNotifications"
+            app:layout_constraintRight_toLeftOf="@id/imageView4" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:layout_margin="0dp"
+            android:src="@drawable/ic_jobs_image"
+            android:onClick="viewJobs"
+            app:layout_constraintRight_toRightOf="@id/action_bar_layout" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
