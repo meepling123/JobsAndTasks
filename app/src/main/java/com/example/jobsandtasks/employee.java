@@ -17,6 +17,9 @@ public class employee
 
     boolean isStudent = false;
 
+    ArrayList<String> messages = new ArrayList<String>();
+    ArrayList<ArrayList<String>> messageLogs = new ArrayList<ArrayList<String>>();
+
           
     public employee(String firstName, String lastName, String Email, String phone, String password
             , String Country, String PostalCode, String locArea, String preJob,String School, String Degree, boolean student, int age)
@@ -71,7 +74,12 @@ public class employee
     public void setBio(String change){this.Bio = change;}
     public void addSkill(String skill){this.skills.add(skill);}
     public void setAge(int change) {this.age = change;}
-    public void addContact(employee contact) {contacts.add(contact);}
+    public void addContact(employee contact) {contacts.add(contact); addLog();}
+
+    public void addLog() {ArrayList<String> newMessages = new ArrayList<String>(); messageLogs.add(newMessages);}
+    public ArrayList<String> getMessages(int i) {return messageLogs.get(i);}
+
+    public void addString(String s, int i) {messageLogs.get(i).add(s);}
 
     public int getSkillSize() {return skills.size();}
 
@@ -79,5 +87,6 @@ public class employee
     {
         return  fName+lName+empEmail+empPhone+empPassword+empCountry+empPostal+empArea+school+degree+empprevJob+age;
     }
+
 
 }
