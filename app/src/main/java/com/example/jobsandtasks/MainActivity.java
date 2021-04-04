@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
             ,"AMERICA", "85085", "Anthem", "Funeral Director", "Boulder Creek", "High School diploma", true, 20);
     employee emp15 = new employee("Derek", "Austin", "djuus413@gmail.com", "555-141-4141", "meepling10"
             ,"AMERICA", "85085", "Phoenix", "Hitman", "Boulder Creek", "High School diploma", true, 20);
+    employee emp16 = new employee("Perkic", "yeas", "pbeas921@gmail.com", "555-141-4141", "meepling10"
+            ,"AMERICA", "85085", "Anthem", "Funeral Director", "Boulder Creek", "High School diploma", true, 20);
+    employee emp17 = new employee("Derek", "Austin", "djuus413@gmail.com", "555-141-4141", "meepling10"
+            ,"AMERICA", "85085", "Phoenix", "Hitman", "Boulder Creek", "High School diploma", true, 20);
 
     company com1 = new company("MicroSoft","America","85086","Anthem","Tech Company");
     company com2 = new company("Apple","America","85086","Anthem","Tech Company");
@@ -87,6 +91,13 @@ public class MainActivity extends AppCompatActivity {
         dataBase.addEmployee(emp13);
         dataBase.addEmployee(emp14);
         dataBase.addEmployee(emp15);
+        dataBase.addEmployee(emp16);
+        dataBase.addEmployee(emp17);
+        // ---------------------  \\
+        dataBase.addEmployee(emp16);
+        dataBase.addEmployee(emp17);
+        dataBase.addEmployee(emp16);
+        dataBase.addEmployee(emp17);
 
         comDataBase.addCompany(com1);
         comDataBase.addCompany(com2);

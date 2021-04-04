@@ -150,11 +150,12 @@ public class employeeHomeMaker extends AppCompatActivity {
         int total = 0;
         ArrayList<companyJob> usedJobs = new ArrayList<companyJob>();
         ArrayList<Integer> positions = new ArrayList<Integer>();
+
         for (int j = 5; j > 0; j--)
         {
             for (int k = 0; k < dataBase.userBaseSize(); k++)
             {
-
+                int size = dataBase.userBaseSize();
                 if (rating[k] == j)
                 {
                     total++;
@@ -169,7 +170,8 @@ public class employeeHomeMaker extends AppCompatActivity {
 
 
                 }
-                if (total % 5 == 0 && positions.contains(total) == false && total != 0)
+
+                if (total % 5 == 0 &&  positions.contains(total) == false && total != 0) // positions.contains(total) == false &&
                 {
                     positions.add(total);
                     boolean didAdd = false;
@@ -189,7 +191,7 @@ public class employeeHomeMaker extends AppCompatActivity {
                             }
 
                         }
-                        if (didAdd == true){break;}
+                        if (didAdd){break;}
                     }
                 }
             }
@@ -385,16 +387,22 @@ public class employeeHomeMaker extends AppCompatActivity {
 
     public void viewPost(View view)
     {
-
+        Intent intent= new Intent(this ,employeePostMaker.class);
+        intent.putExtra("currentUser", userPosition);
+        startActivity(intent);
     }
 
     public void viewNotifications(View view)
     {
-
+        Intent intent= new Intent(this ,employeeNotificationMaker.class);
+        intent.putExtra("currentUser", userPosition);
+        startActivity(intent);
     }
 
     public void viewJobs(View view)
     {
-
+        Intent intent= new Intent(this ,employeeJobListMaker.class);
+        intent.putExtra("currentUser", userPosition);
+        startActivity(intent);
     }
 }

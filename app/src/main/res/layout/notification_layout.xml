@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context=".messengerSetUp">
+    tools:context=".employeeNotificationMaker">
 
     <TextView
         android:id="@+id/homeViewText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Reciever"
+        android:gravity="center_horizontal"
+        android:text="Notifications"
         android:textSize="36dp"
         />
 
@@ -23,18 +24,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/homeViewText"
-        >
+        app:layout_constraintTop_toTopOf="@id/homeViewText">
 
         <LinearLayout
             android:id="@+id/homeLinearLayout"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:layout_margin="12dp"
-            android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="@id/homeViewText"
-            >
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:text="No Notifications"
+                android:textSize="36dp"
+                />
 
 
         </LinearLayout>
@@ -42,41 +48,10 @@
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/messageBoxLayout"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/action_bar_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <EditText
-            android:id="@+id/messageBox"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Message"
-            />
-
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:onClick="sendMessage"
-            android:text="Send"
-            app:backgroundTint="#3F51B5" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/action_bar_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -133,5 +108,3 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-

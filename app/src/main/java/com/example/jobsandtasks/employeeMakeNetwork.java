@@ -113,12 +113,22 @@ public class employeeMakeNetwork extends AppCompatActivity
 
     public void viewPost(View view)
     {
-
+        Intent intent= new Intent(this ,employeePostMaker.class);
+        intent.putExtra("currentUser", userPosition);
+        startActivity(intent);
     }
 
-    public void viewNotifications(View view) {
+    public void viewNotifications(View view)
+    {
+        Intent intent= new Intent(this ,employeeNotificationMaker.class);
+        intent.putExtra("currentUser", userPosition);
+        startActivity(intent);
     }
 
-    public void viewJobs(View view) {
+    public void viewJobs(View view)
+    {
+        Intent intent= new Intent(this ,employeeJobListMaker.class);
+        intent.putExtra("currentUser", userPosition);
+        startActivity(intent);
     }
 }

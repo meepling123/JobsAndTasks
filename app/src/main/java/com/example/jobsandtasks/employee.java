@@ -1,4 +1,5 @@
 package com.example.jobsandtasks;
+import android.text.BoringLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -18,7 +19,10 @@ public class employee
     boolean isStudent = false;
 
     ArrayList<String> messages = new ArrayList<String>();
+    ArrayList<Boolean> messageOrder = new ArrayList<Boolean>();
+
     ArrayList<ArrayList<String>> messageLogs = new ArrayList<ArrayList<String>>();
+    ArrayList<ArrayList<Boolean>> messageOrderlogs = new ArrayList<ArrayList<Boolean>>();
 
           
     public employee(String firstName, String lastName, String Email, String phone, String password
@@ -74,12 +78,18 @@ public class employee
     public void setBio(String change){this.Bio = change;}
     public void addSkill(String skill){this.skills.add(skill);}
     public void setAge(int change) {this.age = change;}
+
     public void addContact(employee contact) {contacts.add(contact); addLog();}
+    public int getContactByPos(employee e) {int i = contacts.indexOf(e); return i;}
 
-    public void addLog() {ArrayList<String> newMessages = new ArrayList<String>(); messageLogs.add(newMessages);}
+    public void addLog() {ArrayList<String> newMessages = new ArrayList<String>(); messageLogs.add(newMessages);
+                    ArrayList<Boolean> messageLog = new ArrayList<Boolean>(); messageOrderlogs.add(messageLog);}
+
     public ArrayList<String> getMessages(int i) {return messageLogs.get(i);}
+    public ArrayList<Boolean> getMessageOrder(int i) {return messageOrderlogs.get(i);}
 
-    public void addString(String s, int i) {messageLogs.get(i).add(s);}
+    public void addMessage(String s, int i, boolean b) {messageLogs.get(i).add(s); messageOrderlogs.get(i).add(b);}
+
 
     public int getSkillSize() {return skills.size();}
 

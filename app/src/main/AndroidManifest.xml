@@ -25,7 +25,9 @@
         <activity android:name=".employeeOutsideView"/>
         <activity android:name=".employeeMakeNetwork"/>
         <activity android:name=".messengerSetUp"/>
-
+        <activity android:name=".employeeNotificationMaker"/>
+        <activity android:name=".employeeJobListMaker"/>
+        <activity android:name=".employeePostMaker"/>
     </application>
 
 </manifest>
