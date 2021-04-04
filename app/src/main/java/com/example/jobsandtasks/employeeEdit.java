@@ -71,6 +71,9 @@ public class employeeEdit extends AppCompatActivity
         EditText empEmail = findViewById(R.id.emailContactEdit);
         empEmail.setHint(curEmp.getEmpEmail());
 
+        EditText empAge = findViewById(R.id.ageEditView);
+        empAge.setHint(curEmp.getAge());
+
         TextView skillsShow = findViewById(R.id.skillsView);
         String skillString = "";
         for (int i = 0; i < curEmp.getSkill().size(); i++)
@@ -124,6 +127,9 @@ public class employeeEdit extends AppCompatActivity
         EditText empEmail = findViewById(R.id.emailContactEdit);
         if (empEmail.getText().toString().replaceAll(" ", "").equals("") == false)
             curEmp.setEmpEmail(empEmail.getText().toString());
+
+        EditText empAge = findViewById(R.id.ageEditView);
+        curEmp.setAge( Integer.parseInt(empAge.getText().toString()));
 
         Intent intent= new Intent(this ,employeeProfile.class);
         intent.putExtra("currentUser", user);

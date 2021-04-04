@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main_activity"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
     <EditText
@@ -75,7 +77,7 @@
         android:layout_marginTop="16dp"
         android:onClick="loginToAccount"
         android:text="Sign In"
-        app:backgroundTint="#3F51B5"
+        app:backgroundTint="#3649B6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
