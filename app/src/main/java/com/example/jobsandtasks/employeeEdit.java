@@ -128,8 +128,9 @@ public class employeeEdit extends AppCompatActivity
         if (empEmail.getText().toString().replaceAll(" ", "").equals("") == false)
             curEmp.setEmpEmail(empEmail.getText().toString());
 
-        EditText empAge = findViewById(R.id.ageEditView);
-        curEmp.setAge( Integer.parseInt(empAge.getText().toString()));
+        //edit age does not work
+        //EditText empAge = findViewById(R.id.ageEditView);
+        //curEmp.setAge( Integer.parseInt(empAge.getText().toString()));
 
         Intent intent= new Intent(this ,employeeProfile.class);
         intent.putExtra("currentUser", user);
