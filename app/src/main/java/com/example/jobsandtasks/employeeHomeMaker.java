@@ -64,7 +64,7 @@ public class employeeHomeMaker extends AppCompatActivity {
         for (int i = 0; i < dataBase.userBaseSize(); i++)
         {
             if (curUser.getEmpCountry().equals(dataBase.getEmployeeBylogin(i).getEmpCountry())  &&
-                    curUser.getEmpLocalArea().equals(dataBase.getEmployeeBylogin(i).getEmpLocalArea()) &&
+                    curUser.getEmpLocalArea().toLowerCase().equals(dataBase.getEmployeeBylogin(i).getEmpLocalArea().toLowerCase()) &&
                     (curUser.getEmpPostal().equals(dataBase.getEmployeeBylogin(i).getEmpPostal()) &&
                         curUser.getSchool().equals(dataBase.getEmployeeBylogin(i).getSchool()))
             )
@@ -126,25 +126,27 @@ public class employeeHomeMaker extends AppCompatActivity {
         //Determines which company ads will be viewed
         for (int i = 0; i < companyDataBase.userBaseSize(); i++)
         {
-            if (curUser.getEmpCountry().equals(companyDataBase.getCompany(i).getCountry()) &&
-                    curUser.getEmpLocalArea().equals(companyDataBase.getCompany(i).getJob(i).getRegion()) &&
-                        curUser.getEmpPostal().equals(companyDataBase.getCompany(i).getJob(i).getPostalCode()))
+
+            if (companyDataBase.getCompany(i).getNumJobs() < i)
             {
-                cRating[i] = 5;
+
             }
-            if (curUser.getEmpCountry().equals(companyDataBase.getCompany(i).getCountry()) &&
-                    companyDataBase.getCompany(i).getJob(i).isOnline == true && cRating[i] != 5)
-            {
-                cRating[i] = 4;
+            else {
+                if (companyDataBase.getCompany(i).getNumJobs() > 0) {
+                    if (curUser.getEmpCountry().equals(companyDataBase.getCompany(i).getCountry()) &&
+                            curUser.getEmpLocalArea().equals(companyDataBase.getCompany(i).getJob(i).getRegion()) &&
+                            curUser.getEmpPostal().equals(companyDataBase.getCompany(i).getJob(i).getPostalCode())) {
+                        cRating[i] = 5;
+                    }
+                    if (curUser.getEmpCountry().equals(companyDataBase.getCompany(i).getCountry()) &&
+                            companyDataBase.getCompany(i).getJob(i).isOnline == true && cRating[i] != 5) {
+                        cRating[i] = 4;
+                    }
+                    if (curUser.getEmpCountry().equals(companyDataBase.getCompany(i).getCountry()) == false) {
+                        cRating[i] = 0;
+                    }
+                }
             }
-            if (curUser.getEmpCountry().equals(companyDataBase.getCompany(i).getCountry()) == false)
-            {
-                cRating[i] = 0;
-            }
-
-
-
-
         }
 
         int total = 0;

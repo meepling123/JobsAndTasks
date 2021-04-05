@@ -72,7 +72,7 @@ public class employeeEdit extends AppCompatActivity
         empEmail.setHint(curEmp.getEmpEmail());
 
         EditText empAge = findViewById(R.id.ageEditView);
-        empAge.setHint(curEmp.getAge());
+        empAge.setHint("" + curEmp.getAge());
 
         TextView skillsShow = findViewById(R.id.skillsView);
         String skillString = "";

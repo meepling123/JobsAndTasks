@@ -59,6 +59,7 @@ public class company {
 
     public companyJob getJob(int i)
     {
+
         return jobs.get(i);
     }
 

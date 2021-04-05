@@ -111,8 +111,9 @@ public class signupclass extends AppCompatActivity
             dataBase.addEmployee(newEmp);
             startActivity(new Intent(this, MainActivity.class));
         }
-
-        Toast toast = Toast.makeText(getApplicationContext(), "Please Enter all required fields", Toast.LENGTH_LONG);
-        toast.show();
+        else {
+            Toast toast = Toast.makeText(getApplicationContext(), "Please Enter all required fields", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 }
