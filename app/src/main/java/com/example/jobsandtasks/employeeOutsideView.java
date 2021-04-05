@@ -97,6 +97,12 @@ public class employeeOutsideView extends AppCompatActivity
 
         }
 
+        if (id == R.id.action_signout)
+        {
+            startActivity(new Intent(this, MainActivity.class));
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }
