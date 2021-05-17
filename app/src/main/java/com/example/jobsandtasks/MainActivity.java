@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     companyDataBase comDataBase = new companyDataBase();
 
     employee emp1 = new employee("Daniel", "Austin", "djaus564@gmail.com", "555-141-4141", "meepling10"
-            ,"America", "85086", "Anthem", "Hitman", "Boulder Creek", "High School diploma", true, 20);
+            ,"America", "85086", "Anthem", "Waiter", "Boulder Creek", "High School diploma", true, 20);
     employee emp2 = new employee("Emerson", "Light", "emerson123@gmail.com", "602-363-6420", "meepling10"
             ,"America", "85086", "Anthem", "Waiter", "Boulder Creek", "none", true, 20);
     employee emp3 = new employee("Christian", "Heal", "cmhea774@dvusd.org", "612-738-9090", "meepling10"
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     employee emp10 = new employee("Derek", "Austin", "dtAus564@gmail.com", "555-141-4141", "meepling10"
             ,"America", "85085", "Anthem", "Police officer", "Boulder Creek", "High School diploma", false, 20);
     employee emp11 = new employee("Amasi", "Reyesh", "djaus909@gmail.com", "555-141-4141", "meepling10"
-            ,"America", "85085", "Tuscan", "Hitman", "Boulder Creek", "High School diploma", true, 20);
+            ,"America", "85085", "Tuscan", "Waiter", "Boulder Creek", "High School diploma", true, 20);
     employee emp12 = new employee("Derek", "Austin", "djfic322@gmail.com", "555-141-4141", "meepling10"
             ,"Brazil", "85085", "Flagstaff", "Waiter", "Boulder Creek", "High School diploma", false, 20);
     employee emp13 = new employee("Selec", "teeqn", "sbtee930@gmail.com", "555-141-4141", "meepling10"
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     employee emp14 = new employee("Perkic", "yeas", "pbeas921@gmail.com", "555-141-4141", "meepling10"
             ,"America", "85085", "Anthem", "Funeral Director", "Boulder Creek", "High School diploma", true, 20);
     employee emp15 = new employee("Derek", "Austin", "djuus413@gmail.com", "555-141-4141", "meepling10"
-            ,"America", "85085", "Phoenix", "Hitman", "Boulder Creek", "High School diploma", true, 20);
+            ,"America", "85085", "Phoenix", "Waiter", "Boulder Creek", "High School diploma", true, 20);
     employee emp16 = new employee("Perkic", "yeas", "pbeas921@gmail.com", "555-141-4141", "meepling10"
             ,"America", "85085", "Anthem", "Funeral Director", "Boulder Creek", "High School diploma", true, 20);
     employee emp17 = new employee("Derek", "Austin", "djuus413@gmail.com", "555-141-4141", "meepling10"
