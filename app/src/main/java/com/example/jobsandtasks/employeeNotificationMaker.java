@@ -10,7 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class employeeNotificationMaker extends AppCompatActivity
 {
-    int orgUser;
+    int userPosition;
+    employee curUser;
+    employeeDataBase dataBase = new employeeDataBase();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,28 +20,29 @@ public class employeeNotificationMaker extends AppCompatActivity
         setContentView(R.layout.notification_layout);
 
         Intent intent = getIntent();
-        int originalUser = intent.getIntExtra("curUser", 0);
-        orgUser = originalUser;
+        int curUserPosition = intent.getIntExtra("currentUser", 0);
+        userPosition = curUserPosition;
+        curUser = dataBase.getEmployeeBylogin(curUserPosition);
     }
 
     public void viewHome(View view)
     {
         Intent intent= new Intent(this ,employeeHomeMaker.class);
-        intent.putExtra("currentUser", orgUser);
+        intent.putExtra("currentUser", userPosition);
         startActivity(intent);
     }
 
     public void viewNetwork(View view)
     {
         Intent intent= new Intent(this ,employeeMakeNetwork.class);
-        intent.putExtra("currentUser", orgUser);
+        intent.putExtra("currentUser", userPosition);
         startActivity(intent);
     }
 
     public void viewPost(View view)
     {
         Intent intent= new Intent(this ,employeePostMaker.class);
-        intent.putExtra("currentUser", orgUser);
+        intent.putExtra("currentUser", userPosition);
         startActivity(intent);
     }
 
@@ -51,7 +54,7 @@ public class employeeNotificationMaker extends AppCompatActivity
     public void viewJobs(View view)
     {
         Intent intent= new Intent(this ,employeeJobListMaker.class);
-        intent.putExtra("currentUser", orgUser);
+        intent.putExtra("currentUser", userPosition);
         startActivity(intent);
     }
 
@@ -72,7 +75,7 @@ public class employeeNotificationMaker extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_profile) {
             Intent intent= new Intent(this ,employeeProfile.class);
-            intent.putExtra("currentUser", orgUser);
+            intent.putExtra("currentUser", userPosition);
             startActivity(intent);
             return true;
 

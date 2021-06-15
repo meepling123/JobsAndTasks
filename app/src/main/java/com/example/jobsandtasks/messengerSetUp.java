@@ -33,8 +33,6 @@ public class messengerSetUp extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messenger);
 
-
-
         Intent intent = getIntent();
         int curUserPosition = intent.getIntExtra("viewedUser", 0);
         viewed = dataBase.getEmployeeBylogin(curUserPosition);
@@ -49,53 +47,59 @@ public class messengerSetUp extends AppCompatActivity
          j = getContact;
         LinearLayout mainLl = findViewById(R.id.homeLinearLayout);
 
-        for (int i = 0; i < orgEmp.getMessages(getContact).size(); i++)
+        if (orgEmp.getMessages(getContact) == null)
         {
-            ArrayList<String> messages = orgEmp.getMessages(getContact);
-            ArrayList<Boolean> messageOrder = orgEmp.getMessageOrder(getContact);
-            LinearLayout ll = new LinearLayout(this);
 
-            if (messageOrder.get(i) == true)
-            {
-                EditText edit = findViewById(R.id.messageBox);
-                LinearLayout.LayoutParams llParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
-                TextView message = new TextView(this);
-                message.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
-                message.setText("  " + messages.get(i));
-                message.setLayoutParams(llParams2);
-                message.setBackgroundColor(Color.rgb(113,166, 175));
-                message.setBackgroundResource(R.drawable.rounded_corner_view);
-                mainLl.addView(message);
-
-
-                ll.setOrientation(LinearLayout.HORIZONTAL);
-                LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 16);
-                ll.setLayoutParams(llParams);
-            }
-            else
-            {
-                EditText edit = findViewById(R.id.messageBox);
-                LinearLayout.LayoutParams llParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
-                TextView message = new TextView(this);
-                message.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
-                message.setText("  " + messages.get(i));
-                message.setLayoutParams(llParams2);
-                message.setBackgroundColor(Color.rgb(113,166, 175));
-                message.setBackgroundResource(R.drawable.rounded_other_message);
-                mainLl.addView(message);
-
-
-                ll.setOrientation(LinearLayout.HORIZONTAL);
-                LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 16);
-                ll.setLayoutParams(llParams);
-            }
-
-
-
-            mainLl.addView(ll);
         }
+        else
+        {
+            for (int i = 0; i < orgEmp.getMessages(getContact).size(); i++)
+            {
+                ArrayList<String> messages = orgEmp.getMessages(getContact);
+                ArrayList<Boolean> messageOrder = orgEmp.getMessageOrder(getContact);
+                LinearLayout ll = new LinearLayout(this);
+
+                if (messageOrder.get(i) == true)
+                {
+                    EditText edit = findViewById(R.id.messageBox);
+                    LinearLayout.LayoutParams llParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+                    TextView message = new TextView(this);
+                    message.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
+                    message.setText("  " + messages.get(i));
+                    message.setLayoutParams(llParams2);
+                    message.setBackgroundColor(Color.rgb(113,166, 175));
+                    message.setBackgroundResource(R.drawable.rounded_corner_view);
+                    mainLl.addView(message);
+
+                    ll.setOrientation(LinearLayout.HORIZONTAL);
+                    LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 16);
+                    ll.setLayoutParams(llParams);
+                }
+                else
+                {
+                    EditText edit = findViewById(R.id.messageBox);
+                    LinearLayout.LayoutParams llParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+                    TextView message = new TextView(this);
+                    message.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
+                    message.setText("  " + messages.get(i));
+                    message.setLayoutParams(llParams2);
+                    message.setBackgroundColor(Color.rgb(113,166, 175));
+                    message.setBackgroundResource(R.drawable.rounded_other_message);
+                    mainLl.addView(message);
+
+
+                    ll.setOrientation(LinearLayout.HORIZONTAL);
+                    LinearLayout.LayoutParams llParams = new LinearLayout.LayoutParams(24, 16);
+                    ll.setLayoutParams(llParams);
+                }
+
+                mainLl.addView(ll);
+            }
+        }
+
+
 
     }
 
@@ -177,7 +181,6 @@ public class messengerSetUp extends AppCompatActivity
         ll.setLayoutParams(llParams);
         mainLl.addView(ll);
     }
-
     else if (message.contains("job"))
     {
         LinearLayout mainLl = findViewById(R.id.homeLinearLayout);
